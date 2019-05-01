@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>New Car</title>
+</head>
+
+<body>
+
+    <h1>
+        <nav>
+            <a href="/cars/<%= car._id %>">BACK</a>
+        </nav>
+        New Car Page
+    </h1>
+
+    <form action="/cars/<%= car._id %>?_method=put" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="<%= car.name %>" />
+        <br>
+
+        <% companies.forEach(company => { %>
+        <input type="checkbox" name="companies" value="<%= company._id %>"
+            <%= car.companies.includes(company._id)? 'checked' : '' %> />
+        <%= company.name %> <br>
+        <% }) %>
+        <input type="submit" value="Update Car Info">
+    </form>
+</body>
+
+</html>

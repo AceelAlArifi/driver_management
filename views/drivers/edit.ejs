@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>New Driver</title>
+</head>
+
+<body>
+
+    <h1>
+        <nav>
+            <a href="/drivers/<%= driver._id %>">BACK</a>
+        </nav>
+        New Driver Page
+    </h1>
+
+    <form action="/drivers/<%= driver._id %>?_method=put" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="<%= driver.name %>" />
+        <br>
+
+        <% companies.forEach(company => { %>
+        <input type="checkbox" name="companies" value="<%= company._id %>"
+            <%= driver.companies.includes(company._id)? 'checked' : '' %> />
+        <%= company.name %> <br>
+        <% }) %>
+        <input type="submit" value="Update Driver Info">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>New Car</title>
+</head>
+
+<body>
+    <h1>New Car Page</h1>
+    <form action="/cars" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <br>
+        <% companies.forEach(company => { %>
+        <input type="checkbox" name="carscompaniesArray" value="<%= company._id %>"><%= company.name %><br>
+        <% }) %>
+        <input type="submit" value="Create Car">
+
+    </form>
+</body>
+
+</html>

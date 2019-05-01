@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>New Driver</title>
+</head>
+
+<body>
+    <h1>New Driver Page</h1>
+    <form action="/drivers" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <br>
+        <% companies.forEach(company => { %>
+        <input type="checkbox" name="driverscompaniesArray" value="<%= company._id %>"><%= company.name %><br>
+        <% }) %>
+        <input type="submit" value="Create Driver">
+
+    </form>
+</body>
+
+</html>

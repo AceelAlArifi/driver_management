@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/app.css">
+
+</head>
+
+<body>
+    <h1>All Cars </h1>
+    <nav>
+        <a href="/cars/new">Add New Car</a>
+    </nav>
+
+    <ul>
+        <% for (i in cars) { %>
+        <li>
+            <a href="/cars/<%= cars[i]._id  %>"><%= cars[i].name %></a>
+            <form action="/cars/<%= cars[i]._id  %>?_method=DELETE" method="POST">
+                <input type="submit" value="DELETE" />
+            </form>
+        </li>
+        <% } %>
+    </ul>
+</body>
+
+</html>
